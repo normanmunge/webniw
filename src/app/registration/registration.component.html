@@ -89,11 +89,11 @@
 
 																							<div class="tab-pane" role="tabpanel" id="step2">
 																									<h3>Pick Events</h3>
-																									<div class="form-group block">
-																										<input type="checkbox" *ngFor = "let name of events"  id="signup-form" value="{{name.id}}">
-																										{{name.name}}{{name.topic}}
-																									</div>
-																									<div class="margin-line"></div>
+																									<ul class="form-group block ac-custom ac-checkbox ac-checkmark" autocomplete="off">
+																										<li *ngFor="let name of events">
+																											<input id="{{name.event.id}}" name="{{name.event.id}}" type="checkbox"><label for="{{name.event.id}}"><h2>{{name.event.name}}</h2>{{name.event.topic}}</label></li>
+																										<div class="margin-line"></div>
+																									</ul>
 																									<ul class="list-inline pull-right">
 																											<li><button type="button" class="btn btn-default prev-step">Previous</button></li>
 																											<li><button type="submit" class="btn btn-primary next-step">Save and continue</button></li>

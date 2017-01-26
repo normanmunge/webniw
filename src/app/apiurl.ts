@@ -1,3 +1,3 @@
 export const  ApiUrl = Object.freeze({
-  base_api_url: "http://oosc.cloudapp.net/api/",
+  base_api_url: "http://niw.cloudapp.net/api/",
 });

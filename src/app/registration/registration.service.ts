@@ -21,7 +21,8 @@ export class RegistrationService{
 
      //this is optional - angular2 already sends these
      //const headers = new Headers();
-    /**  */let token=localStorage.getItem("user");
+    /**  */
+    //let token=localStorage.getItem("user");
     let headers = new Headers({
         'Content-Type': 'application/json',
         //'Authorization':'Bearer '+token
@@ -41,6 +42,7 @@ export class RegistrationService{
   }
 
   getEvents(){
+    
     //let token=localStorage.getItem("user");
     let headers = new Headers({
         'Content-Type': 'application/json',

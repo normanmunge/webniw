@@ -32,15 +32,16 @@ export class RegistrationComponent implements OnInit {
       email: [null, Validators.compose([Validators.required])],
       phone: [null, Validators.compose([Validators.required])]
     });
-    
+    console.log('ujinga');
+
     this.getEvents();
   }
 
   onSubmit(registerDelegate: Registration){
     this.registerDelegate = new Registration(registerDelegate.firstName,registerDelegate.lastName,registerDelegate.email,registerDelegate.phone);
     this._delegateRegistration.sendData({
-      firstName: registerDelegate.firstName,
-      lstName: registerDelegate.lastName,
+      fstname: registerDelegate.firstName,
+      lstname: registerDelegate.lastName,
       username: registerDelegate.email,
       phone: registerDelegate.phone,
       password: (registerDelegate.firstName)+("#")
