@@ -1,18 +1,24 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
-import { HttpModule } from '@angular/http';
-
+import { Component, NgModule, ElementRef } from '@angular/core';
+import { LocationStrategy, HashLocationStrategy } from '@angular/common';
+import { FormsModule,ReactiveFormsModule } from '@angular/forms';
+import { HttpModule,Http } from '@angular/http';
 import { AppComponent } from './app.component';
+import { RegistrationComponent } from './registration/registration.component';
+import { Routes,RouterModule } from '@angular/router';
+import { AppRoutesModule,routes } from './app.routes';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    RegistrationComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
-    HttpModule
+    ReactiveFormsModule,
+    HttpModule,
+    RouterModule.forRoot(routes)
   ],
   providers: [],
   bootstrap: [AppComponent]
