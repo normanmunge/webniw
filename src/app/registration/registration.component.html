@@ -44,7 +44,7 @@
 																			</div>
 																			<small style="color: green;">{{success}}</small>
 																			<small style="color: red;">{{fail}}</small>
-																			<form [formGroup]="form" (ngSubmit)="onSubmit(form.value)" role="form">
+																			<form [formGroup]="form" novalidate (ngSubmit)="onSubmit(form.value)" role="form">
 																					<div class="tab-content">
 																							<div class="tab-pane active" role="tabpanel" id="step1">
 																									<div class="form-inline text-center" role="form">
@@ -91,12 +91,12 @@
 																									<h3>Pick Events</h3>
 																									<ul class="form-group block ac-custom ac-checkbox ac-checkmark" autocomplete="off">
 																										<li *ngFor="let name of events">
-																											<input id="{{name.event.id}}" name="{{name.event.id}}" type="checkbox"><label for="{{name.event.id}}"><h2>{{name.event.name}}</h2>{{name.event.topic}}</label></li>
+																											<input id="{{name.event.id}}" value="{{name.event.id}}" [formControl]="form.controls['events']"  type="checkbox"><label  for="{{name.event.id}}"><h2>{{name.event.name}}</h2>{{name.event.topic}}</label></li>
 																										<div class="margin-line"></div>
 																									</ul>
 																									<ul class="list-inline pull-right">
 																											<li><button type="button" class="btn btn-default prev-step">Previous</button></li>
-																											<li><button type="submit" class="btn btn-primary next-step">Save and continue</button></li>
+																											<li><button type="button" class="btn btn-primary next-step">Save and continue</button></li>
 																									</ul>
 																							</div>
 
@@ -140,7 +140,6 @@
 														<img class="img-responsive" height="350px" width="150px "src="assets/images/niw_uon.png" alt="">
 												</a>
 										<p>Copyright © 2017 C4DLab. All rights reserved. Designed & developed by sisitech.com</p>
-
 								</div>
 						</div>
 				</div>

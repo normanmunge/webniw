@@ -23,29 +23,23 @@
     <link rel="stylesheet" href="assets/css/component.css">
     <link rel="stylesheet" href="assets/css/responsive.css">
 
-    <!-- 1. Load libraries -->
-    <!-- Polyfill(s) for older browsers -->
-   <script src="node_modules/core-js/client/shim.min.js"></script>
-   <script src="node_modules/zone.js/dist/zone.js"></script>
-   <script src="node_modules/reflect-metadata/Reflect.js"></script>
-   <script src="node_modules/systemjs/dist/system.src.js"></script>
-
-
 
     <!--template js files -->
     <!-- Js -->
-      <script src="assets/js/vendor/modernizr-2.6.2.min.js"></script>
       <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+      <script src="assets/js/vendor/modernizr-2.6.2.min.js"></script>
       <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.10.2.min.js"><\/script>')</script>
       <script src="assets/js/bootstrap.min.js"></script>
       <script src="assets/js/plugins.js"></script>
       <!--<script src="assets/js/main.js"></script>-->
       <script src="assets/js/wow.min.js"></script>
-      <script src="assets/js/modernizr.custom.js"></script>
-
+      <!--<script src="assets/js/modernizr.custom.js"></script>-->
+      <script>
+       new WOW(
+          ).init();
+      </script>
 
     <!-- 2. Configure SystemJS -->
-   <script src="systemjs.config.js"></script>
    <script>
      System.import('app').catch(function(err){ console.error(err); });
    </script>

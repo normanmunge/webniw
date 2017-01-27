@@ -3,7 +3,7 @@ export class Registration {
     public firstName: string,
     public lastName: string,
     public email: string,
-    //public events: string,
-    public phone: number
+    public phone: number,
+    public events: string
   ){}
 }

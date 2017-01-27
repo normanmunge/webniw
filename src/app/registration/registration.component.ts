@@ -24,26 +24,37 @@ export class RegistrationComponent implements OnInit {
   public registerDelegate: Registration;
   public events;
   public form: FormGroup;
+  side_events = [];
 
   ngOnInit() {
     this.form = this.fb.group({
       firstName: [null, Validators.compose([Validators.required,])],
       lastName: [null, Validators.compose([Validators.required])],
       email: [null, Validators.compose([Validators.required])],
-      phone: [null, Validators.compose([Validators.required])]
+      phone: [null, Validators.compose([Validators.required])],
+      events: [null]
     });
     console.log('ujinga');
 
     this.getEvents();
   }
 
+  s = [];
+  eventSelected: string;
   onSubmit(registerDelegate: Registration){
-    this.registerDelegate = new Registration(registerDelegate.firstName,registerDelegate.lastName,registerDelegate.email,registerDelegate.phone);
+
+    this.eventSelected = registerDelegate.events;
+    this.side_events = new Array(this.eventSelected);
+
+    console.log(this.eventSelected, this.side_events);
+
+    this.registerDelegate = new Registration(registerDelegate.firstName,registerDelegate.lastName,registerDelegate.email,registerDelegate.phone,registerDelegate.events);
     this._delegateRegistration.sendData({
       fstname: registerDelegate.firstName,
       lstname: registerDelegate.lastName,
       username: registerDelegate.email,
       phone: registerDelegate.phone,
+      events: this.side_events,
       password: (registerDelegate.firstName)+("#")
     })
     .subscribe(
@@ -54,11 +65,13 @@ export class RegistrationComponent implements OnInit {
               this.form.reset();
             },
             error =>{
+              console.log(error);
               this.empty = "This field is required";
               this.fail = "Failed to save data";
             }
       );
   }
+
 
   getEvents(){
 
