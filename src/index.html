@@ -30,8 +30,19 @@
       <script src="assets/js/vendor/modernizr-2.6.2.min.js"></script>
       <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.10.2.min.js"><\/script>')</script>
       <script src="assets/js/bootstrap.min.js"></script>
+      <script>
+      $('.prev-step').click(function (e) {
+          e.preventDefault()
+          $('#step1').tab('show')
+        });
+
+        $('#next-step').click(function (e) {
+            e.preventDefault()
+            $('#step2 a[href="#step2"]').tab('show')
+          });
+      </script>
       <script src="assets/js/plugins.js"></script>
-      <!--<script src="assets/js/main.js"></script>-->
+      <!<script src="assets/js/main.js"></script>
       <script src="assets/js/wow.min.js"></script>
       <!--<script src="assets/js/modernizr.custom.js"></script>-->
       <script>
@@ -55,5 +66,6 @@
 
     <script src="assets/js/wizard.js"></script>
     <script src="assets/js/svgcheckbx.js"></script>
+
 
 </html>

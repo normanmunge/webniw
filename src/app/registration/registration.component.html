@@ -7,7 +7,7 @@
 				<div class="container">
 						<div class="row">
 								<div class="col-md-4 col-sm-6">
-										<div class="block" style="margin-top:50px;">
+										<div class="block" style="margin-top:135px;">
 												<img class="app-img img-responsive" src="assets/images/app.png" alt="">
 										</div>
 								</div>
@@ -52,14 +52,14 @@
 																												<div class="col-md-6">
 																														<div class="input-group">
 																														  <span class="input-group-addon" id="basic-addon1"><i class="glyphicon glyphicon-user"></i></span>
-																														  <input style="width:150%;" [formControl]="form.controls['firstName']" type="text" class="form-control" placeholder="First Name (required)" aria-describedby="basic-addon1">
+																														  <input style="width:280px;" [formControl]="form.controls['firstName']" type="text" class="form-control" placeholder="First Name (required)" aria-describedby="basic-addon1">
 																															<small *ngIf="form.controls['firstName'].hasError('required') && form.controls['firstName'].touched" class="md-text-warn">Kindly input your first name.</small>
 																														</div>
 																												</div>
 																												<div class="col-md-6">
 																													<div class="input-group">
 																													  <span class="input-group-addon" id="basic-addon1"><i class="glyphicon glyphicon-user"></i></span>
-																													  <input style="width:150%;" [formControl]="form.controls['lastName']" type="text" class="form-control" placeholder="Last Name" aria-describedby="basic-addon1">
+																													  <input style="width:280px;" [formControl]="form.controls['lastName']" type="text" class="form-control" placeholder="Last Name" aria-describedby="basic-addon1">
 																														<small *ngIf="form.controls['lastName'].hasError('required') && form.controls['lastName'].touched" class="md-text-warn">Kindly input your last name.</small>
 																													</div>
 																												</div>
@@ -69,32 +69,32 @@
 																												<div class="col-md-6">
 																													<div class="input-group">
 																													  <span class="input-group-addon" id="basic-addon1"><i class="glyphicon glyphicon-envelope"></i></span>
-																													  <input style="width:150%;" [formControl]="form.controls['email']" type="email" class="form-control" placeholder="Email" aria-describedby="basic-addon1">
+																													  <input style="width:280px;" [formControl]="form.controls['email']" type="email" class="form-control" placeholder="Email" aria-describedby="basic-addon1">
 																														<small *ngIf="form.controls['email'].hasError('required') && form.controls['email'].touched" class="md-text-warn">Kindly input your email.</small>
 																													</div>
 																												</div>
 																												<div class="col-md-6">
 																													<div class="input-group">
 																													  <span class="input-group-addon" id="basic-addon1"><i class="glyphicon glyphicon-phone"></i></span>
-																													  <input style="width:150%;" [formControl]="form.controls['phone']" type="text" class="form-control" placeholder="Phone Number" aria-describedby="basic-addon1">
+																													  <input style="width:280px;" [formControl]="form.controls['phone']" type="text" class="form-control" placeholder="Phone Number" aria-describedby="basic-addon1">
 																														<small *ngIf="form.controls['phone'].hasError('required') && form.controls['phone'].touched" class="md-text-warn">Kindly input your phone number.</small>
 																													</div>
 																												</div>
 																											</div>
 																									</div>
 																									<ul class="list-inline pull-right">
-																											<li><button style="margin-right:-40px;"type="button" class="btn btn-primary next-step">Save and continue</button></li>
+																											<li><button id="next-step" style="margin-right:-40px;"type="button" class="btn btn-primary next-step">Save and continue</button></li>
 																									</ul>
 																							</div>
 
 																							<div class="tab-pane" role="tabpanel" id="step2">
 																									<h3>Pick Events</h3>
-																									<ul class="form-group block ac-custom ac-checkbox ac-checkmark" autocomplete="off">
+																									<ul class="form-group block ac-custom" autocomplete="off">
 																										<li *ngFor="let name of events">
-																											<input id="{{name.event.id}}" [(ngModel)]="name.event.status"  [formControl]="form.controls['events']"  type="checkbox"><label  for="{{name.event.id}}"><h2>{{name.event.name}}</h2>{{name.event.topic}}</label></li>
-																										<div class="margin-line"></div>
+																											<input id="{{name.event.id}}" [(ngModel)]="name.event.status"  [formControl]="form.controls['events']"  type="checkbox"><label  for="{{name.event.id}}"><h2>{{name.event.name}}</h2>{{name.event.topic}}</label>
+																											<div class="margin-line"></div>
+																										</li>
 																									</ul>
-																									<button (click)="eventIds()">Events</button>
 																									<ul class="list-inline pull-right">
 																											<li><button type="button"  class="btn btn-default prev-step">Previous</button></li>
 																											<li><button type="button"  class="btn btn-primary next-step">Save and continue</button></li>
@@ -106,7 +106,7 @@
 																									<p>You have successfully completed all steps.</p>
 																									<ul class="list-inline pull-right">
 																											<li><button type="button" class="btn btn-default prev-step">Previous</button></li>
-																											<li><button type="submit" class="btn btn-primary next-step">Save and continue</button></li>
+																											<li><button (click)="eventIds()" type="submit" class="btn btn-primary next-step">Save and continue</button></li>
 																									</ul>
 																							</div>
 																							<div class="clearfix"></div>
@@ -116,18 +116,22 @@
 															</section>
 													</div>
 													<br><br>
-													<h2 class="text-center">Download the app</h2>
-													<ul class="download-btn">
-															<li>
-																	<a href="#" class="btn btn-default btn-apple"> <i class="fa fa-apple"></i>App store</a>
-															</li>
-															<li>
-																	<a href="#" class="btn btn-default btn-andriod"><i class="fa fa-android"></i>Play Store</a>
-															</li>
-															<li>
-																	<a href="#" class="btn btn-default btn-windows"><i class="fa fa-windows"></i>Windows Store</a>
-															</li>
-													</ul>
+													<div class="row">
+														<div class="col-md-12">
+															<h2 class="text-center">Download the app</h2>
+															<ul class="download-btn">
+																	<li>
+																			<a  class="btn btn-default btn-apple"> <i class="fa fa-apple"></i>App store</a>
+																	</li>
+																	<li>
+																			<a class="btn btn-default btn-andriod"><i class="fa fa-android"></i>Play Store</a>
+																	</li>
+																	<li>
+																			<a class="btn btn-default btn-windows"><i class="fa fa-windows"></i>Windows Store</a>
+																	</li>
+															</ul>
+														</div>
+													</div>
 										</div>
 								</div>
 						</div>

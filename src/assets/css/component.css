@@ -29,7 +29,6 @@
 
 .ac-custom li {
 	margin: 0 auto;
-	padding: 2em 0;
 	position: relative;
 }
 
@@ -52,7 +51,7 @@
 	height: 30px;
 	top: 50%;
 	left: 0;
-	margin-top: -25px;
+	margin-top: -10px;
 	position: absolute;
 	cursor: pointer;
 }
@@ -60,7 +59,6 @@
 .ac-custom input[type="checkbox"],
 .ac-custom input[type="radio"] {
 	opacity: 0.9;
-	-webkit-appearance: none;
 	display: inline-block;
 	vertical-align: middle;
 	z-index: 100;
@@ -68,7 +66,6 @@
 
 .ac-custom label::before {
 	content: '';
-	border: 1px solid #7F7F7F;
 	-webkit-transition: opacity 0.3s;
 	transition: opacity 0.3s;
 }
@@ -139,6 +136,7 @@
 /* Box Fill */
 .ac-boxfill svg path {
 	stroke-width: 8px;
+  color: #000;
 }
 
 /* Swirl */
