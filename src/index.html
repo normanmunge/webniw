@@ -28,19 +28,11 @@
     <!-- Js -->
       <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
       <script src="assets/js/vendor/modernizr-2.6.2.min.js"></script>
+      <script src="//raw.github.com/botmonster/jquery-bootpag/master/lib/jquery.bootpag.min.js"></script>
       <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.10.2.min.js"><\/script>')</script>
       <script src="assets/js/bootstrap.min.js"></script>
-      <script>
-      $('.prev-step').click(function (e) {
-          e.preventDefault()
-          $('#step1').tab('show')
-        });
 
-        $('#next-step').click(function (e) {
-            e.preventDefault()
-            $('#step2 a[href="#step2"]').tab('show')
-          });
-      </script>
+      <script type="text/javascript" src="assets/js/jquery-bootpag/jquery.bootpag.js"></script>
       <script src="assets/js/plugins.js"></script>
       <!<script src="assets/js/main.js"></script>
       <script src="assets/js/wow.min.js"></script>
@@ -66,6 +58,15 @@
 
     <script src="assets/js/wizard.js"></script>
     <script src="assets/js/svgcheckbx.js"></script>
-
+    <script>
+        // init bootpag
+        $('#eventSelection').bootpag({
+            total: 5
+        }).on("page", function(event, /* page number here */ num){
+             $("#content").html("Page" +num); // some ajax content loading...
+             // ... after content load -> change total to 10
+             $(this).bootpag({total: 10, maxVisible: 10});
+        });
+    </script>
 
 </html>

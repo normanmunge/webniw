@@ -53,14 +53,14 @@
 																														<div class="input-group">
 																														  <span class="input-group-addon" id="basic-addon1"><i class="glyphicon glyphicon-user"></i></span>
 																														  <input style="width:280px;" [formControl]="form.controls['firstName']" type="text" class="form-control" placeholder="First Name (required)" aria-describedby="basic-addon1">
-																															<small *ngIf="form.controls['firstName'].hasError('required') && form.controls['firstName'].touched" class="md-text-warn">Kindly input your first name.</small>
+																															<small style="color:#ff0000;" *ngIf="form.controls['firstName'].hasError('required') && form.controls['firstName'].touched" class="md-text-warn">Kindly input your first name.</small>
 																														</div>
 																												</div>
 																												<div class="col-md-6">
 																													<div class="input-group">
 																													  <span class="input-group-addon" id="basic-addon1"><i class="glyphicon glyphicon-user"></i></span>
 																													  <input style="width:280px;" [formControl]="form.controls['lastName']" type="text" class="form-control" placeholder="Last Name" aria-describedby="basic-addon1">
-																														<small *ngIf="form.controls['lastName'].hasError('required') && form.controls['lastName'].touched" class="md-text-warn">Kindly input your last name.</small>
+																														<small style="color:#ff0000;" *ngIf="form.controls['lastName'].hasError('required') && form.controls['lastName'].touched" class="md-text-warn">Kindly input your last name.</small>
 																													</div>
 																												</div>
 																											</div>
@@ -70,44 +70,41 @@
 																													<div class="input-group">
 																													  <span class="input-group-addon" id="basic-addon1"><i class="glyphicon glyphicon-envelope"></i></span>
 																													  <input style="width:280px;" [formControl]="form.controls['email']" type="email" class="form-control" placeholder="Email" aria-describedby="basic-addon1">
-																														<small *ngIf="form.controls['email'].hasError('required') && form.controls['email'].touched" class="md-text-warn">Kindly input your email.</small>
+																														<small style="color:#ff0000;" *ngIf="form.controls['email'].hasError('required') && form.controls['email'].touched" class="md-text-warn">Kindly input your email.</small>
 																													</div>
 																												</div>
 																												<div class="col-md-6">
 																													<div class="input-group">
 																													  <span class="input-group-addon" id="basic-addon1"><i class="glyphicon glyphicon-phone"></i></span>
 																													  <input style="width:280px;" [formControl]="form.controls['phone']" type="text" class="form-control" placeholder="Phone Number" aria-describedby="basic-addon1">
-																														<small *ngIf="form.controls['phone'].hasError('required') && form.controls['phone'].touched" class="md-text-warn">Kindly input your phone number.</small>
+																														<small style="color:#ff0000;" *ngIf="form.controls['phone'].hasError('required') && form.controls['phone'].touched" class="md-text-warn">Kindly input your phone number.</small>
 																													</div>
 																												</div>
 																											</div>
 																									</div>
-																									<ul class="list-inline pull-right">
-																											<li><button id="next-step" style="margin-right:-40px;"type="button" class="btn btn-primary next-step">Save and continue</button></li>
-																									</ul>
+																									<a href="#step2" style="margin-right:-40px; margin-top: 20px;" data-toggle="tab" aria-controls="step1" role="tab" class="pull-right btn btn-primary next-step" title="Step 1">Save and Continue</a>
 																							</div>
 
 																							<div class="tab-pane" role="tabpanel" id="step2">
 																									<h3>Pick Events</h3>
-																									<ul class="form-group block ac-custom" autocomplete="off">
+																									<ul id="content" class="form-group block ac-custom" autocomplete="off">
 																										<li *ngFor="let name of events">
 																											<input id="{{name.event.id}}" [(ngModel)]="name.event.status"  [formControl]="form.controls['events']"  type="checkbox"><label  for="{{name.event.id}}"><h2>{{name.event.name}}</h2>{{name.event.topic}}</label>
 																											<div class="margin-line"></div>
 																										</li>
+																											<div id="eventSelection"></div>
 																									</ul>
-																									<ul class="list-inline pull-right">
-																											<li><button type="button"  class="btn btn-default prev-step">Previous</button></li>
-																											<li><button type="button"  class="btn btn-primary next-step">Save and continue</button></li>
-																									</ul>
+																									<a href="#complete" data-toggle="tab" aria-controls="complete" role="tab" class="list-inline pull-right btn btn-primary next-step" title="Complete">Save and Continue</a>
+																									<a href="#step1" style="margin-right: 15px;" data-toggle="tab" aria-controls="step1" role="tab" class="list-inline pull-right btn btn-default prev-step" title="Step 2">Previous</a>
 																							</div>
 
 																							<div class="tab-pane" role="tabpanel" id="complete">
 																									<h3>Complete</h3>
 																									<p>You have successfully completed all steps.</p>
 																									<ul class="list-inline pull-right">
-																											<li><button type="button" class="btn btn-default prev-step">Previous</button></li>
 																											<li><button (click)="eventIds()" type="submit" class="btn btn-primary next-step">Save and continue</button></li>
 																									</ul>
+																									<a style="margin-right:10px;" href="#step2" data-toggle="tab" aria-controls="step2" role="tab" class="list-inline pull-right btn btn-default prev-step" title="Step 1">Previous</a>
 																							</div>
 																							<div class="clearfix"></div>
 																					</div>
@@ -144,7 +141,7 @@
 												<a class="footer-logo"href="#">
 														<img class="img-responsive" height="350px" width="150px "src="assets/images/niw_uon.png" alt="">
 												</a>
-										<p>Copyright © 2017 C4DLab. All rights reserved. Designed & developed by sisitech.com</p>
+										<p>Copyright © 2017 C4DLab. All rights reserved.</p>
 								</div>
 						</div>
 				</div>
