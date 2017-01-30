@@ -23,6 +23,7 @@ export class RegistrationComponent implements OnInit {
   public empty;
   public registerDelegate: Registration;
   public events;
+  public even:any;
   public form: FormGroup;
   side_events = [];
 
@@ -33,6 +34,7 @@ export class RegistrationComponent implements OnInit {
       email: [null, Validators.compose([Validators.required])],
       phone: [null, Validators.compose([Validators.required])],
       events: [null]
+
     });
     console.log('ujinga');
 
@@ -44,9 +46,10 @@ export class RegistrationComponent implements OnInit {
   onSubmit(registerDelegate: Registration){
 
     this.eventSelected = registerDelegate.events;
-    this.side_events = new Array(this.eventSelected);
+    //this.side_events = new Array(this.eventSelected);
 
-    console.log(this.eventSelected, this.side_events);
+    //console.log(this.eventSelected, this.side_events);
+    this.eventIds()
 
     this.registerDelegate = new Registration(registerDelegate.firstName,registerDelegate.lastName,registerDelegate.email,registerDelegate.phone,registerDelegate.events);
     this._delegateRegistration.sendData({
@@ -60,7 +63,7 @@ export class RegistrationComponent implements OnInit {
     .subscribe(
             data => //console.log(data)
             {
-              console.log("Added Delegate Successfully"),
+              console.log("Added Delegate Successfully", this.side_events),
               this.success = "Added Delegate Successfully";
               this.form.reset();
             },
@@ -71,7 +74,17 @@ export class RegistrationComponent implements OnInit {
             }
       );
   }
+  eventIds(){
+    this.side_events=[]
+    for(let event in this.events){
+    //  console.log(this.events[event].event.status)
+    if(this.events[event].event.status){
+          this.side_events.push(this.events[event].event.id)
+    }
 
+    }
+    console.log(this.side_events)
+  }
 
   getEvents(){
 
@@ -80,7 +93,9 @@ export class RegistrationComponent implements OnInit {
         (res)=>{
           const eventName = [];
           for (let event in res){
-            eventName.push(res[event]);
+            this.even=res[event];
+            this.even.event.status=false;
+            eventName.push(this.even);
           }
           this.events = eventName;
           console.log(eventName);

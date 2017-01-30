@@ -91,12 +91,13 @@
 																									<h3>Pick Events</h3>
 																									<ul class="form-group block ac-custom ac-checkbox ac-checkmark" autocomplete="off">
 																										<li *ngFor="let name of events">
-																											<input id="{{name.event.id}}" value="{{name.event.id}}" [formControl]="form.controls['events']"  type="checkbox"><label  for="{{name.event.id}}"><h2>{{name.event.name}}</h2>{{name.event.topic}}</label></li>
+																											<input id="{{name.event.id}}" [(ngModel)]="name.event.status"  [formControl]="form.controls['events']"  type="checkbox"><label  for="{{name.event.id}}"><h2>{{name.event.name}}</h2>{{name.event.topic}}</label></li>
 																										<div class="margin-line"></div>
 																									</ul>
+																									<button (click)="eventIds()">Events</button>
 																									<ul class="list-inline pull-right">
-																											<li><button type="button" class="btn btn-default prev-step">Previous</button></li>
-																											<li><button type="button" class="btn btn-primary next-step">Save and continue</button></li>
+																											<li><button type="button"  class="btn btn-default prev-step">Previous</button></li>
+																											<li><button type="button"  class="btn btn-primary next-step">Save and continue</button></li>
 																									</ul>
 																							</div>
 
